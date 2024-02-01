@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class OOPASSIGNMENT 
+{
+   public static void main(String[] args)
+   {
+      Scanner bscit=new Scanner(System.in);//Scanner Object
+       String Username, Password;
+       System.out.println("Enter Username=");//username maina
+        String username =bscit.nextLine();
+       System.out.println("Enter Password=");//password ****
+       String password =bscit.nextLine();
+       
+       if ((username.equals("maina") && password.equals("****")))
+       {
+            
+       }
+        else
+       {
+          System.out.println("Login successfull"); 
+           
+       }
+       
+       
+          
+   }}

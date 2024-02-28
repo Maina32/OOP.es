@@ -1,0 +1,89 @@
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.SwingUtilities;
+
+import javax.swing.SwingUtilities;
+
+import javax.swing.SwingUtilities;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JPanel;
+
+import javax.swing.JPanel;
+
+import java.awt.GridLayout;
+
+public final class RadiobuttonDemo extends JFrame {
+    private final JLabel petLabel;
+
+    public RadiobuttonDemo() {
+        setTitle("Radio Button Demo");
+        setSize(400, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        petLabel = new JLabel("Selected pet will be displayed here");
+        petLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        JRadioButton birdButton = new JRadioButton("Bird");
+        JRadioButton catButton = new JRadioButton("Cat");
+        JRadioButton dogButton = new JRadioButton("Dog");
+        JRadioButton rabbitButton = new JRadioButton("Rabbit");
+        JRadioButton pigButton = new JRadioButton("Pig");
+
+        ButtonGroup petGroup = new ButtonGroup();
+        petGroup.add(birdButton);
+        petGroup.add(catButton);
+        petGroup.add(dogButton);
+        petGroup.add(rabbitButton);
+        petGroup.add(pigButton);
+
+        
+        ActionListener petSelectionListener = (ActionEvent e) -> {
+            displaySelectedPet(e.getActionCommand());
+        };
+
+        birdButton.addActionListener(petSelectionListener);
+        catButton.addActionListener(petSelectionListener);
+        dogButton.addActionListener(petSelectionListener);
+        rabbitButton.addActionListener(petSelectionListener);
+        pigButton.addActionListener(petSelectionListener);
+
+        JPanel radioButtonPanel = new JPanel();
+        radioButtonPanel.setLayout(new GridLayout(5, 1));
+        radioButtonPanel.add(birdButton);
+        radioButtonPanel.add(catButton);
+        radioButtonPanel.add(dogButton);
+        radioButtonPanel.add(rabbitButton);
+        radioButtonPanel.add(pigButton);
+
+        JPanel labelPanel = new JPanel();
+        labelPanel.add(petLabel);
+
+        JPanel contentPane = new JPanel();
+        contentPane.setLayout(new BorderLayout());
+        contentPane.add(radioButtonPanel,BorderLayout.WEST);
+        contentPane.add(labelPanel, BorderLayout.CENTER);
+
+        setContentPane(contentPane);
+
+        setVisible(true);
+    }
+
+    private void displaySelectedPet(String pet) {
+        petLabel.setText("Selected pet: " + pet);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(PetDisplayApp::new);
+    }
+
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+}
